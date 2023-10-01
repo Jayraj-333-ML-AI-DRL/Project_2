@@ -29,7 +29,9 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         try :
             ## reading data from mysql ##
-            df = read_sql_data()
+            #df = read_sql_data()
+            
+            df = pd.read_csv(os.path.join('Notebook','raw.csv'))
             
             logging.info('Reading data completed from MySQL Database')
             
@@ -46,6 +48,12 @@ class DataIngestion:
             
             logging.info('Train Test split complete')
             
-              
+            return(
+                self.Ingestion_config.train_data_path,
+                self.Ingestion_config.test_data_path
+
+
+            )
+
         except Exception as e:
             raise custom_exception(e,sys)

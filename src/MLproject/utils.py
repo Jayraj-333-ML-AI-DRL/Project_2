@@ -6,6 +6,10 @@ import pandas as pd
 from dotenv import load_dotenv
 import pymysql
 
+
+import pickle
+import numpy 
+
 load_dotenv()
 
 host = os.getenv('host')
@@ -32,3 +36,16 @@ def read_sql_data():
         raise custom_exception(e,sys)
 
 
+def save_obj(file_path, obj):
+    try:
+        dir_path = os.path.dirname(file_path)
+        
+        os.makedirs(dir_path,exist_ok=True)
+        
+        
+        with open(file_path,'wb') as f:
+            pickle.dump(obj,f)
+            
+            
+    except Exception as e :
+        raise custom_exception(e,sys)
