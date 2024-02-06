@@ -1,19 +1,23 @@
+# Importing necessary modules
 from src.MLproject.logger import logging
-import os , sys
+import os
+import sys
 
-def error_msg_details(error,error_details:sys):
-    #print("Custom error msg")
-    _,_, exc_tb = error_details.exc_info()
+# Function to get error message details
+def error_msg_details(error, error_details: sys):
+    # Extracting file name, line number, and error message
+    _, _, exc_tb = error_details.exc_info()
     file_name = exc_tb.tb_frame.f_code.co_filename
-    error_msg = "Error occured in python script name [{0}] line number [{1}] error message [{2}]".format(file_name,exc_tb.tb_lineno,str(error))
+    error_msg = "Error occurred in Python script [{0}] at line number [{1}] with error message: [{2}]".format(
+        file_name, exc_tb.tb_lineno, str(error))
     return error_msg
 
-
-
+# Custom exception class
 class custom_exception(Exception):
-    def __init__(self, error_message,error_details:sys):
+    def __init__(self, error_message, error_details: sys):
         super().__init__(error_message)
-        self.error_message = error_msg_details(error_message,error_details)
+        # Generating detailed error message
+        self.error_message = error_msg_details(error_message, error_details)
         
     def __str__(self):
         return self.error_message
