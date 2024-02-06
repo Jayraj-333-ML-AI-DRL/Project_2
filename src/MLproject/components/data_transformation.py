@@ -111,12 +111,7 @@ class dataTransformation:
             
             return train_array,test_array,self.data_transformation_config
             
-            
-            
-            
-            
-            
-            
+                    
             
             
             

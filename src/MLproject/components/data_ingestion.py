@@ -30,7 +30,7 @@ class DataIngestion:
         try :
             ## reading data from mysql ##
             #df = read_sql_data()
-            
+            #in case read dat from csvs
             df = pd.read_csv(os.path.join('Notebook','raw.csv'))
             
             logging.info('Reading data completed from MySQL Database')
@@ -46,7 +46,9 @@ class DataIngestion:
             
             test_df.to_csv(self.Ingestion_config.test_data_path,index =False, header = True)
             
+            print(f'all columns name are : {list[df.columns]}')
             logging.info('Train Test split complete')
+            logging.info(f'all columns name are : {list[df.columns]}')
             
             return(
                 self.Ingestion_config.train_data_path,

@@ -1,12 +1,15 @@
-import os,sys
+import os
+import sys
 from pathlib import Path
 import logging
 
-logging.basicConfig(level = logging.INFO)
+# Configure logging to display INFO level messages
+logging.basicConfig(level=logging.INFO)
 
+# Define the project name
 project_name = 'MLproject'
 
-
+# List of files to be created
 list_of_files = [
     f"src/{project_name}/pipelines/__init.py",
     f"src/{project_name}/pipelines/training_pipeline.py",
@@ -23,26 +26,29 @@ list_of_files = [
     "Dockerfile",
     "requirements.txt",
     "setup.py"
+     ]
 
-]
-
-
+# Loop through the list of files
 for filepath in list_of_files:
+    # Convert the file path to a Path object
     filepath = Path(filepath)
-    filedir,filename = os.path.split(filepath)
+    # Extract directory and filename from the file path
+    filedir, filename = os.path.split(filepath)
     
+    # Check if the directory is not empty
     if filedir != "":
-        os.makedirs(filedir,exist_ok=True)
+        # Create the directory if it does not exist
+        os.makedirs(filedir, exist_ok=True)
+        # Log the creation of the directory
         logging.info(f"Creating Directory: {filedir} for the file {filename}")
     
+    # Check if the file does not exist or is empty
     if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
-        with open(filepath,"w") as f:
+        # Create an empty file
+        with open(filepath, "w") as f:
             pass
-            logging.info(f"creating empty file :{filepath}")
-            
-            
-
+        # Log the creation of the empty file
+        logging.info(f"Creating empty file: {filepath}")
     else:
-        logging.info(f"{filename} is already exist")
-        
-
+        # Log if the file already exists
+        logging.info(f"{filename} already exists")

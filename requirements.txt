@@ -1,11 +1,15 @@
-numpy
-pandas
-python-dotenv
-mysql-connector-python
-pymysql
-scikit-learn
-seaborn
-catboost
-xgboost
-matplotlib
--e .
+# Required Python packages for the project:
+numpy                          # Package for numerical computing
+pandas                         # Package for data manipulation and analysis
+python-dotenv                  # Package for managing environment variables
+mysql-connector-python         # Package for connecting to MySQL databases
+pymysql                        # Package for connecting to MySQL databases
+scikit-learn                   # Package for machine learning algorithms and tools
+seaborn                        # Package for data visualization based on matplotlib
+catboost                       # Package for gradient boosting on decision trees
+xgboost                        # Package for gradient boosting algorithms
+matplotlib                     # Package for creating static, animated, and interactive visualizations
+Flask                          # Package for building web applications in Python
+dataclasses                    # Package for creating classes to represent data structures
+dill                           # Package for serializing and deserializing Python objects
+-e .                          # Install package in editable mode (current directory)
