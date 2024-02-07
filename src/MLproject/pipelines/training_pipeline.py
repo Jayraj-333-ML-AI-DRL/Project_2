@@ -1,7 +1,7 @@
 from src.MLproject.logger import logging  # Importing logging module for logging purposes
 from src.MLproject.exception import custom_exception  # Importing custom exception module
 from src.MLproject.components.data_ingestion import DataIngestion, DataingestionConfig  # Importing data ingestion components
-from src.MLproject.components.data_transformation import DataTransformationconfig, dataTransformation  # Importing data transformation components
+from src.MLproject.components.data_transformation import DataTransformationconfig, DataTransformation  # Importing data transformation components
 from src.MLproject.components.model_trainer import ModelTrainerconfig, ModelTrainer  # Importing model trainer components
 import sys,os
 
@@ -16,7 +16,7 @@ class TrainingPipeline:
         logging.info('Training pipeline initialized')  # Logging initialization of training pipeline
         # Initializing data ingestion, transformation, and model trainer components
         self.data_ingestion = DataIngestion()
-        self.data_transformation = dataTransformation()
+        self.data_transformation = DataTransformation()
         self.model_trainer = ModelTrainer()
     
     def initiate_training(self):
